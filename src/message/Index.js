@@ -11,7 +11,8 @@ type Props = {
 
 export default class Message extends  Component<Props>{
     static navigationOptions = ({navigation}) => ({
-        headerTitle:'消息',
+        headerTitle:'消息'
+
     })
     render() {
         return(

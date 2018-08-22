@@ -12,7 +12,9 @@ type Props = {
 
 export default class Home extends  Component<Props>{
     static navigationOptions = ({navigation}) => ({
-        headerTitle:'首页',
+        headerTitle:'首页'
+
+
     })
     render() {
         return(

@@ -12,7 +12,8 @@ type Props = {
 
 export default class Find extends  Component<Props>{
     static navigationOptions = ({navigation}) => ({
-        headerTitle:'发现',
+        headerTitle:'发现'
+
     })
     render() {
         return(

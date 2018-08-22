@@ -8,6 +8,7 @@
 
 import React, {Component} from 'react';
 import AppNavigator from './src/Index';
+import './src/untils/Theme';
 
 type Props = {};
 export default class App extends Component<Props> {
