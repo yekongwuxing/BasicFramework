@@ -126,10 +126,8 @@ const AppNavigator = createStackNavigator({
 },{
     initialRouteName:'tabBar',
     navigationOptions: {
-        headerTintColor: global.theme.primaryColor,//设置导航栏颜色
+        headerTintColor: '#fff',//设置导航栏颜色
         headerStyle: {backgroundColor: global.theme.primaryColor},//设置导航条的样式，背景色及宽高等
-        headerTitleStyle: {alignSelf: 'center',color:'#fff'},//设置导航栏文字样式
-        headerBackTitle: null,
         showIcon: true,
 
     },

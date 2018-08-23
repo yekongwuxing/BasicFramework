@@ -11,8 +11,11 @@ type Props = {
 
 export default class Mine extends  Component<Props>{
     static navigationOptions = ({navigation}) => ({
-        headerTitle:'我的'
-
+        headerTitle:'我的',
+        headerTintColor:'#fff',
+        headerStyle:{
+            backgroundColor:global.theme.primaryColor,
+        }
     })
     render() {
         return(
