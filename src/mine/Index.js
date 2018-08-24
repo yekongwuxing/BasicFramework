@@ -4,6 +4,7 @@ import {
     Text
 
 } from 'react-native';
+import Theme from '../untils/Theme';
 
 type Props = {
 
@@ -14,7 +15,7 @@ export default class Mine extends  Component<Props>{
         headerTitle:'我的',
         headerTintColor:'#fff',
         headerStyle:{
-            backgroundColor:global.theme.primaryColor,
+            backgroundColor:Theme.primaryColor,
         },
         headerTitleStyle:{
             textAlign:'center', flexGrow:1

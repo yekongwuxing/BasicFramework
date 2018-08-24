@@ -7,6 +7,7 @@ import {
     TouchableOpacity
 
 } from 'react-native';
+import Theme from '../untils/Theme';
 
 type Props = {
     navigation:any
@@ -17,7 +18,7 @@ export default class Find extends  Component<Props>{
         headerTitle:'发现',
         headerTintColor:'#fff',
         headerStyle:{
-            backgroundColor:global.theme.primaryColor
+            backgroundColor:Theme.primaryColor
         },
         headerTitleStyle:{
             textAlign:'center', flexGrow:1

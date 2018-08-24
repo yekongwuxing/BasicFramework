@@ -3,7 +3,7 @@ import {
     Platform
 } from 'react-native';
 
-global.theme = {
+export default module = {
     screenWidth:Dimensions.get('window').width,
     screenHeight:Dimensions.get('window').height,
     statusBarHeight:Platform.OS === 'android' ? 0 : (isIphoneX() ? 44 : 20),

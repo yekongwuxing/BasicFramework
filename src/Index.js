@@ -11,9 +11,8 @@ import Find from './find/Index';
 import Message from './message/Index';
 import Mine from './mine/Index';
 import FindDetail from './find/FindDetail';
-import Theme from "./untils/Theme";
 import TabBarItem from './widget/TabBarItem';
-
+import Theme from './untils/Theme';
 const HomeScreen = createStackNavigator({
     Home:{
         screen:Home
@@ -99,7 +98,7 @@ const tabBar = createBottomTabNavigator({
     tabBarPosition:'bottom',// 显示在底端，android 默认是显示在页面顶端的
     backBehavior:'none',//按 back 键是否跳转到第一个 Tab， none 为不跳转
     tabBarOptions:{
-        activeTintColor:global.theme.primaryColor,
+        activeTintColor:Theme.primaryColor,
         inactiveTintColor:'#999',
         showIcon:true,//android 默认不显示 icon, 需要设置为 true 才会显示
         indicatorStyle:{height:0},//android 中TabBar下面会显示一条线，高度设为 0 后就不显示线了
@@ -128,7 +127,7 @@ const AppNavigator = createStackNavigator({
     initialRouteName:'tabBar',
     navigationOptions: {
         headerTintColor: '#fff',//设置导航栏颜色
-        headerStyle: {backgroundColor: global.theme.primaryColor},//设置导航条的样式，背景色及宽高等
+        headerStyle: {backgroundColor: Theme.primaryColor},//设置导航条的样式，背景色及宽高等
         showIcon: true,
         headerRight:<View />,
         headerTitleStyle:{
