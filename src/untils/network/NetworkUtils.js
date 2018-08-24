@@ -1,5 +1,7 @@
 
 /*fetch网络请求*/
+import NetworkInterface from "./NetworkInterface";
+
 export default class NetworkUtils {
     /*
     * get请求
@@ -23,15 +25,19 @@ export default class NetworkUtils {
         })
             .then((response) => response.json())//把response转为JSON
             .then((jsonData) => {
-                if (jsonData && jsonData.code == 200) {//200请求成功
+                if (jsonData && jsonData.status == 0) {//请求成功,跟后台约定好
                     success && success(jsonData.data)
+
                 } else {
                     fail && fail(jsonData.message)//请求失败，处理错误信息
                 }
             })
             .catch((e) => {
                 error && error(e)
+                alert(e)
+
             })
+
     }
 
     /*
@@ -45,24 +51,24 @@ export default class NetworkUtils {
             headers:{
                 'Accept': 'application/json',
                 //媒体格式类型key/value格式
-                'Content-Type': 'application/x-www-form-urlencoded',
+                'Content-Type': 'multipart/form-data',
             },
             method:'POST',
             body:params
         })
             .then((response) => response.json())//把response转为JSON
             .then((jsonData) => {
-                if (jsonData && jsonData.status == 0) {//请求成功
+                if (jsonData && jsonData.status == 0) {//请求成功,跟后台约定好
                     success && success(jsonData.data)
-                    alert(jsonData.status)
 
                 } else {
                     fail && fail(jsonData.message)//请求失败，处理错误信息
-                    alert(jsonData.message)
                 }
             })
             .catch((e) => {
                 error && error(e)
+                alert(e)
+
             })
     }
     /*
@@ -95,14 +101,17 @@ export default class NetworkUtils {
         })
             .then((response) => response.json())//把response转为JSON
             .then((jsonData) => {
-                if (jsonData && jsonData.code == 200) {//200请求成功
+                if (jsonData && jsonData.status == 0) {//请求成功,跟后台约定好
                     success && success(jsonData.data)
+
                 } else {
                     fail && fail(jsonData.message)//请求失败，处理错误信息
                 }
             })
-            .catch((error) => {
-                error && error(error)
+            .catch((e) => {
+                error && error(e)
+                alert(e)
+
             })
     }
 
