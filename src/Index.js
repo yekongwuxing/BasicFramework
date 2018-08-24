@@ -1,6 +1,7 @@
 import React,{Component} from 'react';
 import {
-    StatusBar
+    StatusBar,
+    View
 
 } from 'react-native';
 
@@ -129,6 +130,10 @@ const AppNavigator = createStackNavigator({
         headerTintColor: '#fff',//设置导航栏颜色
         headerStyle: {backgroundColor: global.theme.primaryColor},//设置导航条的样式，背景色及宽高等
         showIcon: true,
+        headerRight:<View />,
+        headerTitleStyle:{
+            textAlign:'center', flexGrow:1
+        },//headerRight,headerTitleStyle设置：左边有返回键时，标题文字居中
 
     },
 

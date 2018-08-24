@@ -15,6 +15,9 @@ export default class Mine extends  Component<Props>{
         headerTintColor:'#fff',
         headerStyle:{
             backgroundColor:global.theme.primaryColor,
+        },
+        headerTitleStyle:{
+            textAlign:'center', flexGrow:1
         }
     })
     render() {

@@ -19,6 +19,10 @@ export default class Home extends  Component<Props>{
         headerStyle:{
             backgroundColor:global.theme.primaryColor,
         },
+        headerTitleStyle:{//安卓上标题文字居中
+            textAlign:'center', flexGrow:1
+        }
+
     })
     // 构造
     constructor(props) {
