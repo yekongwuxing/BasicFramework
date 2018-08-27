@@ -8,15 +8,8 @@ import {
 
 } from 'react-native';
 import NetworkConnect from '../untils/network/NetworkConnect'
-import RNAlertView from '../widget/RNAlertView';
+import AlertModal from '../widget/AlertModal';
 import Theme from '../untils/Theme';
-
-const instructions = Platform.select({
-    ios: 'Press Cmd+R to reload,\n' + 'Cmd+D or shake for dev menu',
-    android:
-    'Double tap R on your keyboard to reload,\n' +
-    'Shake or press menu button for dev menu',
-});
 
 type Props = {
 
@@ -58,42 +51,29 @@ export default class Home extends  Component<Props>{
         return (
             <View style={styles.container}>
 
-                {this._renderAndroidAlert()}
+                <AlertModal
+                    ref={AlertModal => this.AlertModal = AlertModal}
+                    message='这是一个自定义弹窗,这是一个自定义弹窗这是一个自定义弹窗'
+                    title = '11111'
+                    rightButtonText='确定'
+                    // leftButtonText='取消'
+                    onRightClick={()=>{
+                        this.AlertModal.hide();
+                        this.AlertModal.setTitle('haha');
+                    }}
+                    onLeftClick={()=>{
+                        this.AlertModal.hide();
+                    }}
+                />
 
-                <Text style={styles.instructions}>{instructions}</Text>
+                <TouchableOpacity onPress={() => {
+                    this.AlertModal.show();
+                }} style={{marginTop:30}}>
+                    <Text style={{fontSize:20}}>弹出Modal</Text>
+                </TouchableOpacity>
 
-                <Text style={styles.welcome} onPress={() => this._show()}>
-                    点我->弹出框
-                </Text>
             </View>
         );
-    }
-
-    _renderAndroidAlert() {
-        return(
-            <RNAlertView ref='alert' conformName={'确定'} cancleName={'取消'}
-                         alertTitle={'删除提示'} alertContent={'执行此操作后，将无法关注该联系人，请确认'}
-                         comformClik={() => {
-                             this._confirm()
-                         }}
-                         cancelClick={() => {
-                             this._cancel()
-                         }}
-            />
-        );
-
-    }
-
-    _show = () => {
-        this.refs.alert && this.refs.alert.showDialog();
-    }
-
-    _confirm = () => {
-        alert('点击了确定')
-    };
-
-    _cancel = () => {
-        alert('点击了取消')
     }
 }
 
@@ -105,14 +85,4 @@ const styles = StyleSheet.create({
         backgroundColor: '#F5FCFF',
     },
 
-    welcome: {
-        fontSize: 20,
-        textAlign: 'center',
-        margin: 10,
-    },
-    instructions: {
-        textAlign: 'center',
-        color: '#333333',
-        marginBottom: 5,
-    },
 });
