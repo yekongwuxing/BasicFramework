@@ -50,13 +50,12 @@ export default class Home extends  Component<Props>{
     render() {
         return (
             <View style={styles.container}>
-
                 <AlertModal
                     ref={AlertModal => this.AlertModal = AlertModal}
-                    message='这是一个自定义弹窗,这是一个自定义弹窗这是一个自定义弹窗'
+                    message='这是一个自定义弹窗，这是一个自定义弹窗，这是一个自定义弹窗'
                     title = '11111'
                     rightButtonText='确定'
-                    // leftButtonText='取消'
+                    //leftButtonText='取消'
                     onRightClick={()=>{
                         this.AlertModal.hide();
                         this.AlertModal.setTitle('haha');
@@ -71,7 +70,6 @@ export default class Home extends  Component<Props>{
                 }} style={{marginTop:30}}>
                     <Text style={{fontSize:20}}>弹出Modal</Text>
                 </TouchableOpacity>
-
             </View>
         );
     }

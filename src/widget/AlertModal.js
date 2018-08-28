@@ -1,6 +1,6 @@
 import React, {
     Component
-} from 'react'
+} from 'react';
 
 import {
     StyleSheet,
@@ -8,8 +8,9 @@ import {
     TouchableOpacity,
     Modal,
     Text,
-    PixelRatio
-} from 'react-native'
+    PixelRatio,
+    Dimensions
+} from 'react-native';
 import Theme from '../untils/Theme';
 /**
  * 确认框
@@ -118,8 +119,7 @@ export default class AlertModal extends Component {
 
 const modalStyle = StyleSheet.create({
     container: {
-        width: Theme.screenWidth,
-        height: Theme.screenHeight,
+        flex:1,
         justifyContent: 'center',
         backgroundColor: 'rgba(0, 0, 0, 0.5)',
     },
@@ -128,6 +128,8 @@ const modalStyle = StyleSheet.create({
         marginRight: 30,
         borderTopLeftRadius:8,
         borderTopRightRadius:8,
+        borderBottomRightRadius: 8,
+        borderBottomLeftRadius: 8,
         backgroundColor: 'white',
     },
     dialogTitle: {
@@ -156,7 +158,8 @@ const modalStyle = StyleSheet.create({
     },
     buttonContainer: {
         flexDirection: 'row',
-        flex: 1,
+        height:44,
+        width:Theme.screenWidth - 60,
     },
     dialogConfirmButton: {
         height: 44,
