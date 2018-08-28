@@ -43,6 +43,7 @@ export default class Home extends  Component<Props>{
         params.append('pagesize',20)
         params.append('pagenum',0)
         NetworkConnect.postRecruitList(params,response => {
+            alert(response)
 
         })
     }

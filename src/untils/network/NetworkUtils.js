@@ -1,6 +1,7 @@
 
 /*fetch网络请求*/
 import NetworkInterface from "./NetworkInterface";
+import {Loading} from '../Loading';
 
 export default class NetworkUtils {
     /*
@@ -47,6 +48,7 @@ export default class NetworkUtils {
     static post(url,params,success,fail,error){
 
         console.log(url,params)
+        Loading.show()
         fetch(url,{
             headers:{
                 'Accept': 'application/json',
@@ -59,13 +61,16 @@ export default class NetworkUtils {
             .then((response) => response.json())//把response转为JSON
             .then((jsonData) => {
                 if (jsonData && jsonData.status == 0) {//请求成功,跟后台约定好
+                    Loading.hidden()
                     success && success(jsonData.data)
 
                 } else {
+                    Loading.hidden()
                     fail && fail(jsonData.message)//请求失败，处理错误信息
                 }
             })
             .catch((e) => {
+                Loading.hidden()
                 error && error(e)
                 alert(e)
 
