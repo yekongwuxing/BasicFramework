@@ -2,6 +2,7 @@
 /*fetch网络请求*/
 import NetworkInterface from "./NetworkInterface";
 import {Loading} from '../Loading';
+import {Toast} from "../Toast";
 
 export default class NetworkUtils {
     /*
@@ -18,6 +19,7 @@ export default class NetworkUtils {
                 url += '&' + paramsArray.join('&')
             }
         }
+        Loading.show()
         console.log(url,params)
         fetch(url,{
             headers:{
@@ -27,10 +29,14 @@ export default class NetworkUtils {
             .then((response) => response.json())//把response转为JSON
             .then((jsonData) => {
                 if (jsonData && jsonData.status == 0) {//请求成功,跟后台约定好
+                    Loading.hidden()
                     success && success(jsonData.data)
 
                 } else {
+                    Loading.hidden()
                     fail && fail(jsonData.message)//请求失败，处理错误信息
+                    Toast.show(jsonData.message)
+
                 }
             })
             .catch((e) => {
@@ -67,6 +73,7 @@ export default class NetworkUtils {
                 } else {
                     Loading.hidden()
                     fail && fail(jsonData.message)//请求失败，处理错误信息
+                    Toast.show(jsonData.message)
                 }
             })
             .catch((e) => {
@@ -93,6 +100,7 @@ export default class NetworkUtils {
             formData.append('file',file)
         }
         console.log(url,formData)
+        Loading.show()
         fetch(url,{
             method: 'POST',
             headers:{
@@ -107,13 +115,18 @@ export default class NetworkUtils {
             .then((response) => response.json())//把response转为JSON
             .then((jsonData) => {
                 if (jsonData && jsonData.status == 0) {//请求成功,跟后台约定好
+                    Loading.hidden()
                     success && success(jsonData.data)
 
                 } else {
+                    Loading.hidden()
                     fail && fail(jsonData.message)//请求失败，处理错误信息
+                    Toast.show(jsonData.message)
+
                 }
             })
             .catch((e) => {
+                Loading.hidden()
                 error && error(e)
                 alert(e)
 
